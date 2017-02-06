@@ -1,0 +1,30 @@
+{
+  "name": "tasks_queue",
+  "version": "1.0.0",
+  "description": "Functionality to show current tasks in the queue. Allows user to add additional tasks.",
+  "main": "index.js",
+  "dependencies": {
+    "mongodb": "^2.2.22"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxbogus/tasks_queue.git"
+  },
+  "keywords": [
+    "task",
+    "queue",
+    "angular",
+    "js",
+    "node"
+  ],
+  "author": "Max Boguslavskiy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxbogus/tasks_queue/issues"
+  },
+  "homepage": "https://github.com/maxbogus/tasks_queue#readme"
+}

@@ -4,6 +4,10 @@
   "description": "Functionality to show current tasks in the queue. Allows user to add additional tasks.",
   "main": "index.js",
   "dependencies": {
+    "angular": "^1.6.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.1",
+    "jquery": "^3.1.1",
     "mongodb": "^2.2.22"
   },
   "devDependencies": {},

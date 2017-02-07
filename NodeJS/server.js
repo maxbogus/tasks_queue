@@ -3,17 +3,11 @@
  */
 
 var express = require('express');
-var app = express();
 var fs = require("fs");
 var bodyParser = require('body-parser');
+var app = express();
 
 app.use(bodyParser.json());
-
-var task = {
-    "title": "password4",
-    "description": "teacher",
-    "priority": 4
-};
 
 app.get('/tasks', function (req, res) {
     fs.readFile(__dirname + "/" + "tasks.json", 'utf8', function (err, data) {
@@ -29,10 +23,7 @@ app.post('/tasks', function (req, res) {
         res.json({message: "Bad Request"});
     } else {
         fs.readFile(__dirname + "/" + "tasks.json", 'utf8', function (err, data) {
-            console.log(data);
             data = JSON.parse(data);
-            console.log(newTask);
-            console.log(data);
             data.push(newTask);
             json = JSON.stringify(data);
             fs.writeFile(__dirname + "/" + "tasks.json", json, 'utf8', function (err) {

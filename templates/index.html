@@ -11,7 +11,16 @@
     <script src="../static/js/app.js"></script>
 </head>
 <body ng-app="tasks">
-<div ng-controller="AngularJSCtrl as tasks">
+
+<div ng-controller="AngularJSCtrl">
+    <ul>
+        <li ng-repeat="task in data | orderBy : '-priority'">
+            {{ '{{ task.title}}' }}
+            {{ '{{ task.description}}' }}
+            {{ '{{ task.priority}}' }}
+        </li>
+    </ul>
 </div>
+
 </body>
 </html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tasks list</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.css"/>
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/angular.js"></script>
+    <script src="../static/js/app.js"></script>
+</head>
+<body ng-app="tasks">
+
+<div ng-controller="AngularJSCtrl">
+    <ul>
+        <li ng-repeat="task in data | orderBy : '-priority'">
+            {{ '{{ task.title}}' }}
+            {{ '{{ task.description}}' }}
+            {{ '{{ task.priority}}' }}
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -6,29 +6,31 @@
 
 var app = angular.module('tasks', []);
 
-app.controller('AngularJSCtrl', function ($scope, $http) {
-    $http(
-        {
-            method: 'GET',
-            url: 'tasks/json'
-        })
-        .then(function (response) {
-            console.log('success');
-            console.log(response.data);
-            $scope.data = response.data.Tasks;
-        }, function (response) {
-            console.log('error');
-            console.log(response.data);
-        });
+app.controller('AngularJSCtrl', function ($scope, $http, $timeout) {
+    $scope.intervalFunction = function(){
+        $timeout(function() {
+            $http(
+                {
+                    method: 'GET',
+                    url: 'tasks/json'
+                })
+                .then(function (response) {
+                    console.log('success');
+                    console.log(response.data);
+                    $scope.data = response.data.Tasks;
+                }, function (response) {
+                    console.log('error');
+                    console.log(response.data);
+                });
+            $scope.intervalFunction();
+        }, 1000)
+    };
+
+    // Kick off the interval
+    $scope.intervalFunction();
 
 });
 
-
-/** TODO:
- * REQUIRED SCOPE
- В предположении, что сервер запущен на 3000 порту:
- 3. Новые задачи должны появляться на http://localhost:3000/tasks без перезагрузки страниц.
- **/
 
 /** TODO:
  * ADDITIONAL SCOPE

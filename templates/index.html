@@ -1,10 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tasks list</title>
     <link rel="stylesheet" href="../static/css/bootstrap.css"/>
     <link rel="stylesheet" href="../static/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="../static/css/normalize.css"/>
     <script src="../static/js/jquery.js"></script>
     <script src="../static/js/bootstrap.js"></script>
     <script src="../static/js/angular.js"></script>
@@ -12,14 +14,17 @@
 </head>
 <body ng-app="tasks">
 
-<div ng-controller="AngularJSCtrl">
-    <ul>
-        <li ng-repeat="task in data | orderBy : '-priority'">
-            {{ '{{ task.title}}' }}
-            {{ '{{ task.description}}' }}
-            {{ '{{ task.priority}}' }}
-        </li>
-    </ul>
+<div class="container" ng-controller="AngularJSCtrl">
+    <div class="row">
+        <h2 class="text-center"> Task list </h2>
+        <div class="list-group">
+            <a href="#" class="list-group-item" ng-repeat="task in data | orderBy : '-priority'">
+                <h4 class="list-group-item-heading">{{ '{{ task.title}}' }} <span class="badge text-right">{{ '{{ task.priority}}' }}</span>
+                </h4>
+                <p class="list-group-item-text">{{ '{{ task.description}}' }}</p>
+            </a>
+        </div>
+    </div>
 </div>
 
 </body>

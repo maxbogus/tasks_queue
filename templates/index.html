@@ -49,9 +49,31 @@
                            placeholder="Description">
                 </div>
                 <div class="form-group">
-                    <label for="taskPriority">Priority: </label>
-                    <input type="text" ng-model="task.priority" class="form-control" id="taskPriority"
-                           placeholder="Priority">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" ng-model="task.priority" id="inlineRadio1"
+                               value="1">
+                        1
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" ng-model="task.priority" id="inlineRadio2"
+                               value="2">
+                        2
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" ng-model="task.priority" id="inlineRadio3"
+                               value="3">
+                        3
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" ng-model="task.priority" id="inlineRadio4"
+                               value="4">
+                        4
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" ng-model="task.priority" id="inlineRadio5"
+                               value="5">
+                        5
+                    </label>
                 </div>
                 <button type="submit" class="btn btn-default" ng-click="reset()">Reset</button>
                 <button type="submit" class="btn btn-default" ng-click="update(task)">Submit</button>

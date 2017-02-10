@@ -39,12 +39,12 @@ app.controller('AngularJSCtrl', function ($scope, $http, $timeout) {
 app.controller('TaskController', function ($scope, $http, $timeout) {
     $scope.master = {};
 
-    $scope.update = function (user) {
-        $scope.master = angular.copy(user);
+    $scope.update = function (task) {
+        $scope.master = angular.copy(task);
     };
 
     $scope.reset = function () {
-        $scope.user = angular.copy($scope.master);
+        $scope.task = angular.copy($scope.master);
     };
 
     $scope.reset();

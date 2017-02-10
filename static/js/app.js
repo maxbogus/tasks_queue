@@ -1,7 +1,3 @@
-/**
- * Created by mboguslavskiy on 07/02/17.
- */
-
 'use strict';
 
 var app = angular.module('tasks', []);
@@ -36,7 +32,7 @@ app.controller('AngularJSCtrl', function ($scope, $http, $timeout) {
 
 });
 
-app.controller('TaskController', function ($scope, $http, $timeout) {
+app.controller('TaskController', function ($scope, $http) {
     $scope.master = {};
 
     $scope.update = function (task) {

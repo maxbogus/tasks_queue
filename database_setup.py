@@ -7,10 +7,10 @@ Base = declarative_base()
 
 class Tasks(Base):
     __tablename__ = 'tasks'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(250), nullable=False)
     description = Column(String(250), nullable=False)
-    priority = Column(Integer)
+    priority = Column(Integer, index=True)
 
     @property
     def serialize(self):

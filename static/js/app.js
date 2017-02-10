@@ -7,8 +7,11 @@
 var app = angular.module('tasks', []);
 
 app.controller('AngularJSCtrl', function ($scope, $http, $timeout) {
-    $scope.intervalFunction = function(){
-        $timeout(function() {
+    $scope.error = null;
+    $scope.timeOut = 0;
+
+    $scope.intervalFunction = function () {
+        $timeout(function () {
             $http(
                 {
                     method: 'GET',
@@ -18,27 +21,17 @@ app.controller('AngularJSCtrl', function ($scope, $http, $timeout) {
                     console.log('success');
                     console.log(response.data);
                     $scope.data = response.data.Tasks;
+                    $scope.timeOut = 10000;
                 }, function (response) {
-                    console.log('error');
+                    $scope.error = "Error occurred. Status: " + response.status + ". More info in console log.";
                     console.log(response.data);
+                    $scope.timeOut = 20000;
                 });
             $scope.intervalFunction();
-        }, 1000)
+        }, $scope.timeOut)
     };
 
     // Kick off the interval
     $scope.intervalFunction();
 
 });
-
-
-/** TODO:
- * ADDITIONAL SCOPE
- В предположении, что сервер запущен на 3000 порту:
- 1. Причесать визуально страницу
- 2. Сделать обработку ошибок
- 3. Добавить лоадинг
- **/
-
-//My request: curl -X POST -d '{"priority":4,"title":"Покрасить забор","description":"Покрасить забор вокруг дома розовым цветом до полуночи сегодня."}' -H "Content-type: application/json" http://localhost:5000/tasks
-//TODO: curl -X POST -d '{"priority":4,"title":"Покрасить забор","description":"Покрасить забор вокруг дома розовым цветом до полуночи сегодня."}' -H "Content-type: application/json" http://localhost:5000/tasks

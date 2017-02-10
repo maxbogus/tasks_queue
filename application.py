@@ -40,7 +40,7 @@ def get_task():
 
 @app.route('/tasks/json', methods=['GET'])
 def tasks_json():
-    tasks = session.query(Tasks).all()
+    tasks = session.query(Tasks).order_by(Tasks.priority.desc())
     return jsonify(Tasks=[i.serialize for i in tasks])
 
 

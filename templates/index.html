@@ -18,9 +18,11 @@
 </head>
 <body ng-app="tasks">
 
-<div class="container" ng-controller="AngularJSCtrl">
+<div class="container">
     <div class="row">
         <h2 class="text-center"> Task list </h2>
+    </div>
+    <div class="row" ng-controller="AngularJSCtrl">
         <div ng-if="null !== error" class="alert alert-danger alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                     aria-hidden="true">&times;</span></button>
@@ -28,12 +30,25 @@
         </div>
         <div class="list-group">
             <a href="#" class="list-group-item" ng-repeat="task in data">
-                <h4 class="list-group-item-heading">{{ '{{ task.title}}' }}</h4><span class="badge text-right">{{ '{{ task.priority}}' }}</span>
+                <h4 class="list-group-item-heading">{{ '{{ task.title}}' }} <span class="badge text-right">Priority: {{ '{{ task.priority}}' }}</span>
+                </h4>
                 <p class="list-group-item-text">{{ '{{ task.description}}' }}</p>
             </a>
         </div>
     </div>
+    <div class="row">
+        <div ng-controller="TaskController">
+            <form novalidate class="simple-form">
+                <label>Title: <input type="text" ng-model="user.title"/></label><br/>
+                <label>Description: <input type="text" ng-model="user.description"/></label><br/>
+                <label>Priority: <input type="text" ng-model="user.priority"/></label><br/>
+                <input type="button" ng-click="reset()" value="Reset"/>
+                <input type="submit" ng-click="update(user)" value="Save"/>
+            </form>
+            <pre>user = {{ '{{user | json}}' }}</pre>
+            <pre>master = {{ '{{master | json}}' }}</pre>
+        </div>
+    </div>
 </div>
-
 </body>
 </html>

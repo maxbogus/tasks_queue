@@ -35,3 +35,17 @@ app.controller('AngularJSCtrl', function ($scope, $http, $timeout) {
     $scope.intervalFunction();
 
 });
+
+app.controller('TaskController', function ($scope, $http, $timeout) {
+    $scope.master = {};
+
+    $scope.update = function (user) {
+        $scope.master = angular.copy(user);
+    };
+
+    $scope.reset = function () {
+        $scope.user = angular.copy($scope.master);
+    };
+
+    $scope.reset();
+});

@@ -63,17 +63,20 @@
                 <button type="submit" class="btn btn-default" ng-click="reset()">Reset</button>
                 <button type="submit" class="btn btn-default" ng-click="update(task)">Submit</button>
             </form>
+            <hr/>
         </div>
     </div>
     <br>
     <div class="row" ng-controller="AngularJSCtrl">
-        <pre>Sort by = {{ '{{propertyName}}' }}; reverse = {{ '{{reverse}}' }}</pre>
-        <hr/>
-        <button ng-click="propertyName = null; reverse = false">Set to unsorted</button>
-        <button ng-click="sortBy('title')">title</button>
-        <button ng-click="sortBy('description')">description</button>
-        <button ng-click="sortBy('priority')">priority</button>
-        <hr/>
+        <form class="form-group">
+            <label for="sorting"> Sorting </label>
+            <div id="sorting">
+                <button class="btn btn-default" ng-click="propertyName = null; reverse = false">Default</button>
+                <button class="btn btn-default" ng-click="sortBy('title')">By title</button>
+                <button class="btn btn-default" ng-click="sortBy('description')">By description</button>
+                <button class="btn btn-default" ng-click="sortBy('priority')">By priority</button>
+            </div>
+        </form>
         <div ng-if="null !== error" class="alert alert-danger alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                     aria-hidden="true">&times;</span></button>

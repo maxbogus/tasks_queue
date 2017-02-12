@@ -1,7 +1,3 @@
-/**
- * Created by mboguslavskiy on 07/02/17.
- */
-
 'use strict';
 
 var app = angular.module('tasks', []);
@@ -9,6 +5,15 @@ var app = angular.module('tasks', []);
 app.controller('AngularJSCtrl', function ($scope, $http, $timeout) {
     $scope.error = null;
     $scope.timeOut = 0;
+    $scope.sortDesc = false;
+
+    $scope.propertyName = 'age';
+    $scope.reverse = true;
+
+    $scope.sortBy = function (propertyName) {
+        $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+        $scope.propertyName = propertyName;
+    };
 
     $scope.intervalFunction = function () {
         $timeout(function () {
@@ -36,7 +41,7 @@ app.controller('AngularJSCtrl', function ($scope, $http, $timeout) {
 
 });
 
-app.controller('TaskController', function ($scope, $http, $timeout) {
+app.controller('TaskController', function ($scope, $http) {
     $scope.master = {};
 
     $scope.update = function (task) {

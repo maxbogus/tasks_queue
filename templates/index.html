@@ -67,13 +67,20 @@
     </div>
     <br>
     <div class="row" ng-controller="AngularJSCtrl">
+        <pre>Sort by = {{ '{{propertyName}}' }}; reverse = {{ '{{reverse}}' }}</pre>
+        <hr/>
+        <button ng-click="propertyName = null; reverse = false">Set to unsorted</button>
+        <button ng-click="sortBy('title')">title</button>
+        <button ng-click="sortBy('description')">description</button>
+        <button ng-click="sortBy('priority')">priority</button>
+        <hr/>
         <div ng-if="null !== error" class="alert alert-danger alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                     aria-hidden="true">&times;</span></button>
             <span> {{ '{{error}}' }}</span>
         </div>
         <div class="list-group">
-            <a href="#" class="list-group-item" ng-repeat="task in data">
+            <a href="#" class="list-group-item" ng-repeat="task in data| orderBy:propertyName:reverse">
                 <h4 class="list-group-item-heading">{{ '{{ task.title}}' }} <span class="badge text-right">Priority: {{ '{{ task.priority}}' }}</span>
                 </h4>
                 <p class="list-group-item-text">{{ '{{ task.description}}' }}</p>

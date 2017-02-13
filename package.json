@@ -9,6 +9,7 @@
     "bootstrap": "^3.3.7",
     "express": "^4.14.1",
     "fs": "0.0.1-security",
+    "jasmine": "^2.5.3",
     "jquery": "^3.1.1",
     "mongodb": "^2.2.22",
     "mongoose": "^4.8.1",

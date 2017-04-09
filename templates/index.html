@@ -83,11 +83,11 @@
             <span> {{ '{{error}}' }}</span>
         </div>
         <div class="list-group">
-            <a href="#" class="list-group-item" ng-repeat="task in data| orderBy:propertyName:reverse">
-                <h4 class="list-group-item-heading">{{ '{{ task.title}}' }} <span class="badge text-right">Priority: {{ '{{ task.priority}}' }}</span>
+            <div href="#" class="list-group-item" ng-repeat="task in data| orderBy:propertyName:reverse">
+                <h4 class="list-group-item-heading">{{ '{{task.id}} {{ task.title}}' }} <span class="badge text-right">Priority: {{ '{{ task.priority}}' }} <a ng-click="delete(task)" class="btn btn-info" role="button">Delete</a> </span>
                 </h4>
                 <p class="list-group-item-text">{{ '{{ task.description}}' }}</p>
-            </a>
+            </div>
         </div>
     </div>
 </div>

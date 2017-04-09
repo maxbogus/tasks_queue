@@ -38,6 +38,20 @@ def get_task():
     return jsonify(content)
 
 
+@app.route('/task/delete/<id>', methods=['POST'])
+def delete_task(id):
+    """ This page will show all my tasks """
+    result = ""
+    try:
+        task = session.query(Tasks).filter_by(id=id).delete()
+        session.commit()
+        result = "success"
+    except Exception:
+        session.rollback()
+        result = "failure {}".format(id)
+    return jsonify(result)
+
+
 @app.route('/tasks/json', methods=['GET'])
 def tasks_json():
     tasks = session.query(Tasks).order_by(Tasks.priority.desc())

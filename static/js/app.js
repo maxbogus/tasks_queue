@@ -15,6 +15,23 @@ app.controller('AngularJSCtrl', function ($scope, $http, $timeout) {
         $scope.propertyName = propertyName;
     };
 
+    $scope.delete = function (task) {
+        $http(
+            {
+                method: 'POST',
+                url: `task/delete/${task.id}`,
+                headers: "application/json",
+            })
+            .then(function (response) {
+                console.log('success');
+                console.log(response.data);
+            }, function (response) {
+                console.log(task);
+                $scope.error = "Error occurred. Status: " + response.status + ". More info in console log.";
+                console.log(response.data);
+            });
+    };
+
     $scope.intervalFunction = function () {
         $timeout(function () {
             $http(

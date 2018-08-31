@@ -1,4 +1,7 @@
 # Install:
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/maxbogus/tasks_queue.svg)](https://greenkeeper.io/)
+
 * $ python database_setup.py
 
 # Use:
